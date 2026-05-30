@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vintage-beige: #F5F2E9;
+  --color-vintage-cream: #F5E6D3;
+  --color-teal-primary: #2A5D77;
+  --color-teal-dark: #1E465A;
+  --color-orange-highlight: #E9A16C;
+  --color-coral-highlight: #FD9888;
+  --color-pastel-pink: #FBCFE8;
+  --color-pastel-green: #A7F3D0;
+  --color-pastel-purple: #DDD6FE;
+  --color-pastel-blue: #C7E7FF;
+  
+  --font-lexend: var(--font-lexend);
+  --font-lora: var(--font-lora);
+  
+  --shadow-brutal: 6px 6px 0px #1C1917;
+  --shadow-brutal-sm: 3px 3px 0px #1C1917;
+  --shadow-brutal-hover: 4px 4px 0px #1C1917;
+  --shadow-brutal-active: 2px 2px 0px #1C1917;
+}
+
+:root {
+  --background: #F5F2E9;
+  --foreground: #1C1917;
+}
+
+body {
+  background-color: #F5F2E9;
+  color: #1C1917;
+}
+
+/* Custom styles for brutalism elements */
+.brutal-card {
+  background-color: #ffffff;
+  border: 3px solid #1C1917;
+  box-shadow: 6px 6px 0px #1C1917;
+  border-radius: 24px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutal-card-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #1C1917;
+}
+
+.brutal-btn {
+  border: 3px solid #1C1917;
+  box-shadow: 4px 4px 0px #1C1917;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.brutal-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 3px 3px 0px #1C1917;
+}
+
+.brutal-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px #1C1917;
+}
+
+.brutal-badge {
+  border: 2px solid #1C1917;
+  box-shadow: 2px 2px 0px #1C1917;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Scrollbar styles matching the retro theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5E6D3;
+  border-left: 3px solid #1C1917;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A5D77;
+  border: 3px solid #1C1917;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1E465A;
+}
+
+/* Custom animations and pattern grids */
+.retro-grid {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(28, 25, 23, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 25, 23, 0.04) 1px, transparent 1px);
+}
+
+.dots-grid {
+  background-size: 16px 16px;
+  background-image: radial-gradient(circle, rgba(28, 25, 23, 0.08) 1.5px, transparent 1.5px);
+}
