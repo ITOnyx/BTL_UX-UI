@@ -19,6 +19,12 @@ const LANGUAGES = [
 ];
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const [activeTab, setActiveTab] = useState("home");
   const [xp, setXp] = useState(1250);
   const [gems, setGems] = useState(1450);
@@ -241,18 +247,24 @@ export default function Home() {
       {/* Main View Container */}
       <main className="flex-grow w-full overflow-y-auto min-h-screen flex flex-col pt-2 lg:pt-0 pb-16 lg:pb-0">
         {/* Switch transitions with Motion */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab + activeLanguage.code + theme}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="flex-grow w-full"
-          >
+        {!mounted ? (
+          <div className="flex-grow w-full">
             {renderActiveView()}
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ) : (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab + activeLanguage.code + theme}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="flex-grow w-full"
+            >
+              {renderActiveView()}
+            </motion.div>
+          </AnimatePresence>
+        )}
       </main>
 
       {/* Bottom Navigation (Mobile) */}
