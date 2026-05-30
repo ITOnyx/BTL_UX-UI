@@ -1,0 +1,17 @@
+{
+  "setupTasks": [
+    {
+      "name": "Cài đặt thư viện frontend",
+      "run": "cd frontend && npm install"
+    }
+  ],
+  "tasks": {
+    "dev": {
+      "name": "Chạy Next.js Dev Server",
+      "run": "cd frontend && npm run dev",
+      "preview": {
+        "port": 3000
+      }
+    }
+  }
+}

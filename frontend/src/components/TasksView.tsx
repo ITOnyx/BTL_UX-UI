@@ -104,7 +104,7 @@ export default function TasksView({
         <div className="absolute inset-0 dots-grid opacity-20 pointer-events-none"></div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b-2 border-[#1C1917] pb-4 mb-5">
           <div className="flex items-center gap-3">
-            <Flame className="w-8 h-8 text-orange-highlight fill-orange-highlight animate-pulse" />
+            <Flame className="w-8 h-8 text-[#1C1917] fill-white animate-pulse" />
             <div>
               <h3 className="font-black text-lg font-lexend">Lộ Trình Streak 7 Ngày</h3>
               <p className="text-xs text-gray-600 font-bold">Duy trì học tập mỗi ngày để nhận rương kho báu cuối tuần!</p>
@@ -169,7 +169,7 @@ export default function TasksView({
                       onClick={() => toggleTaskDemo(task.id, false)}
                       className="mt-1 text-teal-primary hover:scale-105 transition-transform"
                     >
-                      {task.completed ? <CheckSquare className="w-5 h-5 fill-pastel-green text-[#1C1917]" /> : <Square className="w-5 h-5" />}
+                      {task.completed ? <CheckSquare className="w-5 h-5 fill-white text-[#1C1917]" /> : <Square className="w-5 h-5" />}
                     </button>
                     <div className="flex-grow">
                       <p className={`font-black font-lexend text-sm ${task.completed ? "line-through text-gray-400" : ""}`}>
@@ -223,7 +223,7 @@ export default function TasksView({
                       onClick={() => toggleTaskDemo(task.id, true)}
                       className="mt-1 text-teal-primary"
                     >
-                      {task.completed ? <CheckSquare className="w-5 h-5 fill-pastel-purple text-[#1C1917]" /> : <Square className="w-5 h-5" />}
+                      {task.completed ? <CheckSquare className="w-5 h-5 fill-white text-[#1C1917]" /> : <Square className="w-5 h-5" />}
                     </button>
                     <div className="flex-grow">
                       <p className={`font-black font-lexend text-sm ${task.completed ? "line-through text-gray-400" : ""}`}>

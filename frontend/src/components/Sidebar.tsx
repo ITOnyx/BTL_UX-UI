@@ -54,7 +54,7 @@ export default function Sidebar({
         {/* Global Streak & XP indicators */}
         <div className="grid grid-cols-2 gap-3">
           <div className="flex flex-col items-center justify-center bg-white border-3 border-[#1C1917] rounded-xl p-2 shadow-brutal-sm">
-            <Flame className="w-5 h-5 text-orange-highlight fill-orange-highlight" />
+            <Flame className="w-5 h-5 text-[#1C1917] fill-white" />
             <span className="text-xs font-black mt-1 font-lexend">{streak} Ngày</span>
           </div>
           <div className="flex flex-col items-center justify-center bg-white border-3 border-[#1C1917] rounded-xl p-2 shadow-brutal-sm">
@@ -72,7 +72,7 @@ export default function Sidebar({
             <span className="text-xl">{activeLanguage.flag}</span>
             <span className="font-extrabold">{activeLanguage.name}</span>
           </div>
-          <Globe className="w-4 h-4 text-teal-primary" />
+          <Globe className="w-4 h-4 text-[#1C1917]" />
         </button>
 
         {/* Navigation Items */}

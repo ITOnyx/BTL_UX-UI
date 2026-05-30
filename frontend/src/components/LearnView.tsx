@@ -718,7 +718,7 @@ export default function LearnView({
               <div className="absolute inset-0 dots-grid opacity-25 pointer-events-none"></div>
               <div className="flex items-center gap-3 relative z-10">
                 <div className="w-10 h-10 rounded-full bg-pastel-pink border-2 border-[#1C1917] flex items-center justify-center">
-                  <Star className="w-5 h-5 text-teal-primary fill-teal-primary" />
+                  <Star className="w-5 h-5 text-[#1C1917] fill-white" />
                 </div>
                 <div>
                   <h2 className="font-extrabold text-2xl tracking-tight uppercase leading-none font-lexend text-teal-dark">

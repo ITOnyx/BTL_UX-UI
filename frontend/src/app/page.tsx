@@ -232,7 +232,7 @@ export default function Home() {
           </button>
           
           <div className="flex items-center gap-1 bg-white border-2 border-[#1C1917] px-2.5 py-1 rounded-lg text-xs font-black font-lexend">
-            <Flame className="w-3.5 h-3.5 text-orange-highlight fill-orange-highlight" />
+            <Flame className="w-3.5 h-3.5 text-[#1C1917] fill-white" />
             <span>{streak}d</span>
           </div>
         </div>

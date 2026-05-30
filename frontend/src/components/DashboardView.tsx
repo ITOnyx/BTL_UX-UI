@@ -68,7 +68,7 @@ export default function DashboardView({
         
         <div className="flex items-center gap-3">
           <button className="p-2 rounded-xl border-2 border-[#1C1917] bg-white hover:bg-vintage-cream transition-colors">
-            <Star className="w-4 h-4 text-teal-primary fill-teal-primary" />
+            <Star className="w-4 h-4 text-[#1C1917] fill-white" />
           </button>
           <button className="p-2 rounded-xl border-2 border-[#1C1917] bg-white hover:bg-vintage-cream transition-colors">
             <Settings className="w-4 h-4 text-teal-primary" />
@@ -93,19 +93,19 @@ export default function DashboardView({
             {/* Three horizontal stats widgets */}
             <div className="grid grid-cols-3 gap-3 max-w-md">
               <div className="brutal-card p-3 bg-white border-2 border-[#1C1917] flex flex-col items-center justify-center shadow-brutal-sm">
-                <Flame className="w-5 h-5 text-orange-highlight fill-orange-highlight mb-1" />
+                <Flame className="w-5 h-5 text-[#1C1917] fill-white mb-1" />
                 <span className="text-sm font-black font-lexend leading-none">{streak} days</span>
                 <span className="text-[8px] uppercase font-black text-gray-400 mt-1 font-lexend tracking-widest">STREAK</span>
               </div>
               
               <div className="brutal-card p-3 bg-white border-2 border-[#1C1917] flex flex-col items-center justify-center shadow-brutal-sm">
-                <Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500 mb-1" />
+                <Trophy className="w-5 h-5 text-[#1C1917] fill-white mb-1" />
                 <span className="text-sm font-black font-lexend leading-none">{xp} XP</span>
                 <span className="text-[8px] uppercase font-black text-gray-400 mt-1 font-lexend tracking-widest">XP</span>
               </div>
               
               <div className="brutal-card p-3 bg-white border-2 border-[#1C1917] flex flex-col items-center justify-center shadow-brutal-sm">
-                <Award className="w-5 h-5 text-teal-primary fill-teal-primary mb-1" />
+                <Award className="w-5 h-5 text-[#1C1917] fill-white mb-1" />
                 <span className="text-sm font-black font-lexend leading-none">4 LEVEL</span>
                 <span className="text-[8px] uppercase font-black text-gray-400 mt-1 font-lexend tracking-widest">LEVEL</span>
               </div>

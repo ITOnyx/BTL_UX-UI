@@ -113,3 +113,57 @@ body {
   background-size: 16px 16px;
   background-image: radial-gradient(circle, rgba(28, 25, 23, 0.08) 1.5px, transparent 1.5px);
 }
+
+/* ==========================================================================
+   MONOCHROME ICON SYSTEM (ĐEN TRẮNG CỔ ĐIỂN)
+   ========================================================================== */
+
+/* Thiết lập mặc định cho toàn bộ Lucide Icons */
+svg.lucide,
+.lucide {
+  stroke: #1C1917 !important;
+  color: #1C1917 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Các icon dạng "Filled" (được tô màu) chuyển sang tô màu trắng để nổi bật chi tiết nét vẽ đen */
+svg.lucide[class*="fill-"],
+.lucide[class*="fill-"] {
+  fill: #ffffff !important;
+}
+
+/* Khi icon nằm trong các vùng văn bản màu trắng hoặc dark mode */
+.dark svg.lucide,
+.dark .lucide,
+.text-white svg.lucide,
+.text-white .lucide,
+[class*="bg-teal-"] svg.lucide,
+[class*="bg-teal-"] .lucide,
+[class*="bg-[#1C1917]"] svg.lucide,
+[class*="bg-[#1C1917]"] .lucide,
+.brutal-btn svg.lucide,
+.brutal-btn .lucide {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Đổ nền tối cho các icon filled nằm trên nền tối */
+.dark svg.lucide[class*="fill-"],
+.dark .lucide[class*="fill-"],
+.text-white svg.lucide[class*="fill-"],
+.text-white .lucide[class*="fill-"],
+[class*="bg-teal-"] svg.lucide[class*="fill-"],
+[class*="bg-teal-"] .lucide[class*="fill-"],
+[class*="bg-[#1C1917]"] svg.lucide[class*="fill-"],
+[class*="bg-[#1C1917]"] .lucide[class*="fill-"],
+.brutal-btn svg.lucide[class*="fill-"],
+.brutal-btn .lucide[class*="fill-"] {
+  fill: #1C1917 !important;
+}
+
+/* Hỗ trợ hiển thị các dấu tích check hoặc trạng thái tương tác đặc biệt */
+svg.lucide.fill-current,
+.lucide.fill-current {
+  fill: currentColor !important;
+}
+

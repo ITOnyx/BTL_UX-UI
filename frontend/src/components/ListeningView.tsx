@@ -312,9 +312,9 @@ export default function ListeningView({
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-white border-2 border-[#1C1917] flex items-center justify-center">
                 {isCorrect ? (
-                  <Check className="w-5 h-5 text-teal-primary" />
+                  <Check className="w-5 h-5 text-[#1C1917]" />
                 ) : (
-                  <X className="w-5 h-5 text-red-600" />
+                  <X className="w-5 h-5 text-[#1C1917]" />
                 )}
               </div>
               <div>
