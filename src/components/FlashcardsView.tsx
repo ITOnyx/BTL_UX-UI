@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, BookOpen, Check, RefreshCw, ChevronRight } from "lucide-react";
+import { Volume2, BookOpen, Check, RefreshCw } from "lucide-react";
 import { DavidBust, AthenaBust, PaintingClassic } from "./ClassicIllustrations";
 
 interface FlashcardsViewProps {
@@ -97,7 +98,6 @@ const CARDS_BANK: Record<string, Flashcard[]> = {
 };
 
 export default function FlashcardsView({
-  xp,
   setXp,
   activeLanguage,
   incrementQuestProgress,

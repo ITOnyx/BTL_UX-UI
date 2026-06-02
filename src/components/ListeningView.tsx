@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Volume2, HelpCircle, Check, ArrowRight, X } from "lucide-react";
+import { Play, Volume2, Check, ArrowRight, X } from "lucide-react";
 
 interface ListeningViewProps {
   xp: number;
@@ -80,7 +81,6 @@ const QUESTION_BANK: Record<string, DictationQuestion[]> = {
 };
 
 export default function ListeningView({
-  xp,
   setXp,
   activeLanguage,
   incrementQuestProgress,
@@ -97,6 +97,7 @@ export default function ListeningView({
 
   // Reset states on language or question change
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setUserInput("");
     setHasChecked(false);
     setIsCorrect(false);
@@ -106,7 +107,10 @@ export default function ListeningView({
   // Audio synthesizer for success/failure chimes
   const playSoundEffect = (success: boolean) => {
     try {
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      type WindowWithWebkitAudio = Window & {
+        webkitAudioContext?: typeof AudioContext;
+      };
+      const AudioCtx = window.AudioContext || (window as WindowWithWebkitAudio).webkitAudioContext;
       if (!AudioCtx) return;
       const ctx = new AudioCtx();
       

@@ -10,18 +10,20 @@ import TasksView from "@/components/TasksView";
 import StatsView from "@/components/StatsView";
 import UserView from "@/components/UserView";
 import { Flame, Star, X } from "lucide-react";
+import SvgIcon from "@/components/SvgIcon";
 
 const LANGUAGES = [
-  { code: "en_comm", name: "Anh giao tiếp", flag: "🇺🇸" },
-  { code: "en_ielts", name: "IELTS Academic", flag: "🇬🇧" },
-  { code: "en_toeic", name: "TOEIC Đọc Nghe", flag: "💼" },
-  { code: "en_kids", name: "English for Kids", flag: "🧸" }
+  { code: "en_comm", name: "Anh giao tiếp", icon: "dictionary" },
+  { code: "en_ielts", name: "IELTS Academic", icon: "book" },
+  { code: "en_toeic", name: "TOEIC Đọc Nghe", icon: "briefcase" },
+  { code: "en_kids", name: "English for Kids", icon: "cube" }
 ];
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -46,7 +48,7 @@ export default function Home() {
       name: "Streak Freeze",
       desc: "Giữ nguyên chuỗi học tập ngay cả khi bạn bỏ lỡ một ngày học.",
       cost: 200,
-      icon: "⏳",
+      icon: "lock",
       type: "powerup" as const,
       bought: false,
     },
@@ -55,7 +57,7 @@ export default function Home() {
       name: "Double XP",
       desc: "Nhân đôi toàn bộ XP nhận được trong vòng 15 phút tiếp theo.",
       cost: 500,
-      icon: "⚡️",
+      icon: "lightning",
       type: "powerup" as const,
       bought: false,
     },
@@ -100,7 +102,7 @@ export default function Home() {
       id: "ach_1",
       title: "Beginner",
       desc: "Bắt đầu hành trình bằng việc đạt 20 XP học tập.",
-      icon: "📚",
+      icon: "book",
       xpRequired: 20,
       unlocked: xp >= 20,
     },
@@ -108,7 +110,7 @@ export default function Home() {
       id: "ach_2",
       title: "Word Master",
       desc: "Tích lũy đạt 500 từ vựng để bước vào học viện chuyên sâu.",
-      icon: "🦉",
+      icon: "medal",
       xpRequired: 500,
       unlocked: xp >= 500,
     },
@@ -116,7 +118,7 @@ export default function Home() {
       id: "ach_3",
       title: "Polyglot",
       desc: "Mở khóa danh hiệu học giả đa ngôn ngữ khi đạt cấp độ 5.",
-      icon: "🏛️",
+      icon: "dictionary",
       xpRequired: 2000,
       unlocked: xp >= 2000,
     },
@@ -137,7 +139,6 @@ export default function Home() {
           <DashboardView
             xp={xp}
             streak={streak}
-            gems={gems}
             activeAvatar={activeAvatar}
             setActiveTab={setActiveTab}
             fontSize={fontSize}
@@ -178,9 +179,7 @@ export default function Home() {
         return (
           <UserView
             xp={xp}
-            setXp={setXp}
             gems={gems}
-            setGems={setGems}
             shopItems={shopItems}
             buyItem={buyItem}
             equipItem={equipItem}
@@ -221,7 +220,7 @@ export default function Home() {
       {/* Mobile Header */}
       <header className="lg:hidden w-full bg-vintage-cream border-b-3 border-[#1C1917] p-4 flex items-center justify-between z-40 sticky top-0 text-[#1C1917]">
         <div className="flex items-center gap-2">
-          <span className="text-xl">🏛️</span>
+          <SvgIcon name="dictionary" className="w-6 h-6" />
           <h1 className="font-extrabold text-sm uppercase tracking-wider text-teal-primary font-lexend">
             Linguist Vintage
           </h1>
@@ -233,7 +232,7 @@ export default function Home() {
             onClick={() => setShowLangModal(true)}
             className="flex items-center gap-1 bg-white border-2 border-[#1C1917] px-2.5 py-1 rounded-lg text-xs font-bold font-lexend"
           >
-            <span>{activeLanguage.flag}</span>
+            <SvgIcon name={activeLanguage.icon} className="w-4 h-4" />
             <span>{activeLanguage.name}</span>
           </button>
           
@@ -312,7 +311,7 @@ export default function Home() {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl">{lang.flag}</span>
+                        <SvgIcon name={lang.icon} className="w-7 h-7" />
                         <span>{lang.name}</span>
                       </div>
                       {isSelected && <Star className="w-4 h-4 fill-white text-white" />}

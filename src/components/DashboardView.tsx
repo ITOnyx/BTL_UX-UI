@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Flame, Trophy, Award, BookOpen, Lock, Play, Star, Settings } from "lucide-react";
+import { Flame, Trophy, Award, BookOpen, Lock, Star, Settings } from "lucide-react";
 import { DavidBust, AthenaBust, PaintingClassic } from "./ClassicIllustrations";
+import SvgIcon from "./SvgIcon";
 
 interface DashboardViewProps {
   xp: number;
   streak: number;
-  gems: number;
   activeAvatar: string;
   setActiveTab: (tab: string) => void;
   fontSize: "small" | "medium" | "large";
@@ -17,7 +17,6 @@ interface DashboardViewProps {
 export default function DashboardView({
   xp,
   streak,
-  gems,
   activeAvatar,
   setActiveTab,
   fontSize
@@ -26,15 +25,15 @@ export default function DashboardView({
   const [activeFilter, setActiveFilter] = useState<string>("target");
 
   const categories = [
-    { id: "common", name: "Thông dụng", progress: 100, icon: "⭐️", completed: true, locked: false, desc: "Từ vựng đàm thoại thông dụng nhất" },
-    { id: "travel", name: "Du lịch", progress: 60, icon: "✈️", completed: false, locked: false, desc: "Sân bay, khách sạn, mua sắm" },
-    { id: "daily", name: "Hàng ngày", progress: 45, icon: "☕️", completed: false, locked: false, desc: "Giao tiếp sinh hoạt hàng ngày" },
-    { id: "business", name: "Thương mại", progress: 30, icon: "💼", completed: false, locked: false, desc: "Tiếng Anh công sở & doanh nghiệp" },
-    { id: "tech", name: "Công nghệ", progress: 25, icon: "💻", completed: false, locked: false, desc: "IT, khoa học, thiết bị số" },
-    { id: "food", name: "Ẩm thực", progress: 15, icon: "🍴", completed: false, locked: false, desc: "Gọi món, món ăn, nhà hàng" },
-    { id: "health", name: "Sức khỏe", progress: 10, icon: "🩺", completed: false, locked: false, desc: "Y tế, bệnh viện, cơ thể người" },
-    { id: "entertainment", name: "Giải trí", progress: 5, icon: "🎬", completed: false, locked: false, desc: "Phim ảnh, nghệ thuật, âm nhạc" },
-    { id: "dialogue", name: "Hội thoại", progress: 0, icon: "🔒", completed: false, locked: true, desc: "Hội thoại nâng cao (Cấp độ 5)" }
+    { id: "common", name: "Thông dụng", progress: 100, icon: "star", completed: true, locked: false, desc: "Từ vựng đàm thoại thông dụng nhất" },
+    { id: "travel", name: "Du lịch", progress: 60, icon: "airplane", completed: false, locked: false, desc: "Sân bay, khách sạn, mua sắm" },
+    { id: "daily", name: "Hàng ngày", progress: 45, icon: "coffee", completed: false, locked: false, desc: "Giao tiếp sinh hoạt hàng ngày" },
+    { id: "business", name: "Thương mại", progress: 30, icon: "briefcase", completed: false, locked: false, desc: "Tiếng Anh công sở & doanh nghiệp" },
+    { id: "tech", name: "Công nghệ", progress: 25, icon: "laptop", completed: false, locked: false, desc: "IT, khoa học, thiết bị số" },
+    { id: "food", name: "Ẩm thực", progress: 15, icon: "fork-knife", completed: false, locked: false, desc: "Gọi món, món ăn, nhà hàng" },
+    { id: "health", name: "Sức khỏe", progress: 10, icon: "stethoscope", completed: false, locked: false, desc: "Y tế, bệnh viện, cơ thể người" },
+    { id: "entertainment", name: "Giải trí", progress: 5, icon: "film-reel", completed: false, locked: false, desc: "Phim ảnh, nghệ thuật, âm nhạc" },
+    { id: "dialogue", name: "Hội thoại", progress: 0, icon: "lock", completed: false, locked: true, desc: "Hội thoại nâng cao (Cấp độ 5)" }
   ];
 
   const getAvatarComponent = (name: string) => {
@@ -55,7 +54,7 @@ export default function DashboardView({
       {/* Header and Brand */}
       <div className="flex items-center justify-between mb-6 border-b-3 border-[#1C1917] pb-4">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">🇺🇸</span>
+          <SvgIcon name="dictionary" className="w-7 h-7" />
           <div>
             <h1 className="font-extrabold text-2xl tracking-tight uppercase leading-none font-lexend text-teal-primary">
               Linguist Vintage
@@ -133,9 +132,9 @@ export default function DashboardView({
       {/* Three minor filter pills */}
       <div className="flex gap-2.5 mb-6 justify-center md:justify-start">
         {[
-          { id: "target", icon: "🎯", color: "bg-pastel-pink" },
-          { id: "trophy", icon: "🏆", color: "bg-[#E9A16C]" },
-          { id: "medal", icon: "🏅", color: "bg-pastel-blue" }
+          { id: "target", icon: "frame-corners", color: "bg-pastel-pink" },
+          { id: "trophy", icon: "cup", color: "bg-[#E9A16C]" },
+          { id: "medal", icon: "medal", color: "bg-pastel-blue" }
         ].map((pill) => (
           <button
             key={pill.id}
@@ -144,7 +143,7 @@ export default function DashboardView({
               activeFilter === pill.id ? pill.color : "bg-white"
             }`}
           >
-            {pill.icon}
+            <SvgIcon name={pill.icon} className="w-5 h-5" />
           </button>
         ))}
       </div>
@@ -160,7 +159,7 @@ export default function DashboardView({
           >
             <div className="flex-grow mr-4">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-lg">{cat.icon}</span>
+                <SvgIcon name={cat.icon} className="w-5 h-5" />
                 <h4 className="font-black text-base font-lexend tracking-tight text-[#1C1917]">
                   {cat.name}
                 </h4>

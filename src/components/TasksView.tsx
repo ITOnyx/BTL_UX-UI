@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { CheckSquare, Square, Award, Flame, Gift, CheckCircle, RefreshCw } from "lucide-react";
+import { motion } from "framer-motion";
+import { CheckSquare, Square, Award, Flame } from "lucide-react";
+import SvgIcon from "./SvgIcon";
 
 interface TasksViewProps {
   xp: number;
@@ -15,9 +16,7 @@ interface TasksViewProps {
 }
 
 export default function TasksView({
-  xp,
   setXp,
-  gems,
   setGems,
   streak,
   setStreak,
@@ -95,7 +94,8 @@ export default function TasksView({
           </div>
         </div>
         <div className="brutal-badge bg-pastel-pink font-lexend text-xs font-extrabold">
-          🎯 Quests Center
+          <SvgIcon name="frame-corners" className="w-4 h-4" />
+          Quests Center
         </div>
       </div>
 
@@ -140,7 +140,7 @@ export default function TasksView({
                     }
                   }}
                 >
-                  {day.completed ? "✓" : day.label}
+                  {day.completed ? <SvgIcon name="star" className="w-4 h-4" /> : day.label}
                 </motion.div>
                 <span className="text-[9px] md:text-xs font-black font-lexend text-gray-700">{day.day}</span>
               </div>

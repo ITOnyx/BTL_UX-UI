@@ -1,9 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { Flame, Star, ShieldAlert, Award, Coffee, BookOpen } from "lucide-react";
 import { DavidBust, AthenaBust, PaintingClassic } from "./ClassicIllustrations";
+import SvgIcon from "./SvgIcon";
 
 interface ShopItem {
   id: string;
@@ -18,7 +18,6 @@ interface ShopItem {
 
 interface ShopViewProps {
   xp: number;
-  setXp: (xp: number | ((prev: number) => number)) => void;
   shopItems: ShopItem[];
   buyItem: (id: string) => void;
   equipItem: (id: string) => void;
@@ -27,7 +26,6 @@ interface ShopViewProps {
 
 export default function ShopView({
   xp,
-  setXp,
   shopItems,
   buyItem,
   equipItem,
@@ -115,7 +113,7 @@ export default function ShopView({
                 >
                   <div className="flex gap-4 items-center">
                     <div className="w-12 h-12 rounded-xl bg-pastel-purple border-2 border-[#1C1917] flex items-center justify-center text-xl flex-shrink-0 shadow-[2px_2px_0px_#1C1917]">
-                      {item.icon}
+                      <SvgIcon name={item.icon} className="w-6 h-6" />
                     </div>
                     <div>
                       <h5 className="font-black text-sm uppercase tracking-wide font-lexend text-[#1C1917]">

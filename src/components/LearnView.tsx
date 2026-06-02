@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Edit2, Volume2, Mic, PenTool, FileText, AlertCircle, ArrowLeft, Check, X, RefreshCw, Star, Play } from "lucide-react";
+import SvgIcon from "./SvgIcon";
 
 interface LearnViewProps {
   xp: number;
@@ -14,9 +16,7 @@ interface LearnViewProps {
 }
 
 export default function LearnView({
-  xp,
   setXp,
-  gems,
   setGems,
   incrementQuestProgress,
   fontSize
@@ -124,7 +124,7 @@ export default function LearnView({
         return (
           <div className="flex flex-col gap-5 p-2 text-[#1C1917]">
             <div className="flex items-center gap-3 border-b-3 border-[#1C1917] pb-3 mb-1">
-              <span className="text-2xl">⚠️</span>
+              <AlertCircle className="w-7 h-7 text-[#1C1917]" />
               <div>
                 <h4 className="font-black text-lg uppercase tracking-wide font-lexend">Ôn Tập Lỗi Sai</h4>
                 <p className="text-xs text-gray-500 font-bold">Ôn lại những từ bạn thường xuyên nhầm lẫn</p>
@@ -550,7 +550,7 @@ export default function LearnView({
             {grammarChecked && (
               <div className="p-4 rounded-xl border-2 border-[#1C1917] bg-white flex flex-col gap-2">
                 <span className="font-black text-sm uppercase font-lexend text-teal-primary">
-                  {selectedOption === gramQ.correctIndex ? "🎉 Bạn đã trả lời đúng! +10 XP" : "😢 Rất tiếc, câu trả lời sai!"}
+                  {selectedOption === gramQ.correctIndex ? "Bạn đã trả lời đúng! +10 XP" : "Rất tiếc, câu trả lời sai!"}
                 </span>
                 <p className="text-xs text-gray-700 font-bold mt-1">
                   <span className="underline">Giải thích:</span> {gramQ.explanation}
@@ -673,7 +673,7 @@ export default function LearnView({
             ) : (
               <div className="flex flex-col gap-4 items-center">
                 <div className="w-20 h-20 rounded-full bg-pastel-pink border-3 border-[#1C1917] flex items-center justify-center text-3xl font-black">
-                  🎓
+                  <SvgIcon name="medal" className="w-10 h-10" />
                 </div>
                 <h5 className="font-black text-xl font-lexend mt-2">
                   Kết quả: {testScore} / 3 Đúng
@@ -731,7 +731,8 @@ export default function LearnView({
               </div>
               <div className="flex items-center gap-2 relative z-10">
                 <div className="brutal-badge bg-vintage-cream font-lexend text-xs font-extrabold">
-                  🇺🇸 Tiếng Anh
+                  <SvgIcon name="dictionary" className="w-4 h-4" />
+                  Tiếng Anh
                 </div>
               </div>
             </div>

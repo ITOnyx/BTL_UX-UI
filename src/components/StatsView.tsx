@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, TrendingUp, BarChart2, Calendar, Target, BookOpen, Mic, FileText, Headphones } from "lucide-react";
+import { TrendingUp, Calendar, Target, BookOpen, Mic, FileText, Headphones } from "lucide-react";
+import SvgIcon from "./SvgIcon";
 
 interface StatsViewProps {
   xp: number;
@@ -10,7 +11,7 @@ interface StatsViewProps {
   fontSize: "small" | "medium" | "large";
 }
 
-export default function StatsView({ xp, streak, fontSize }: StatsViewProps) {
+export default function StatsView({ fontSize }: StatsViewProps) {
   // 1. Weekly XP Data (matching the mockup visual columns)
   const weeklyXP = [
     { day: "T2", xp: 35, color: "bg-teal-primary" },
@@ -228,7 +229,10 @@ export default function StatsView({ xp, streak, fontSize }: StatsViewProps) {
           </div>
 
           <p className="text-[10px] font-black text-coral-highlight uppercase tracking-wider font-lexend mt-2">
-            ⚠️ Kỹ năng nghe cần cải thiện.
+            <span className="inline-flex items-center gap-1">
+              <SvgIcon name="ear" className="w-4 h-4" />
+              Kỹ năng nghe cần cải thiện.
+            </span>
           </p>
         </div>
       </div>
@@ -320,7 +324,7 @@ export default function StatsView({ xp, streak, fontSize }: StatsViewProps) {
       <div className="brutal-card p-6 bg-[#8C6D4F] text-white border-3 border-[#1C1917] shadow-brutal flex flex-col md:flex-row items-center gap-6 text-center md:text-left relative overflow-hidden">
         <div className="absolute inset-0 dots-grid opacity-15 pointer-events-none"></div>
         <div className="w-16 h-16 rounded-full bg-orange-highlight border-3 border-[#1C1917] flex items-center justify-center text-3xl shadow-brutal-sm flex-shrink-0 animate-bounce">
-          🏅
+          <SvgIcon name="medal" className="w-9 h-9" />
         </div>
         <div className="flex-grow">
           <h3 className="text-xl font-black font-lexend uppercase tracking-wide">Mọt Sách Cổ</h3>

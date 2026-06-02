@@ -3,6 +3,7 @@
 import React from "react";
 import { GraduationCap, BarChart2, User, Home, Flame, Globe, Trophy } from "lucide-react";
 import { DavidBust } from "./ClassicIllustrations";
+import SvgIcon from "./SvgIcon";
 
 interface SidebarProps {
   activeTab: string;
@@ -10,7 +11,7 @@ interface SidebarProps {
   xp: number;
   streak: number;
   gems: number;
-  activeLanguage: { code: string; name: string; flag: string };
+  activeLanguage: { code: string; name: string; icon: string };
   setShowLangModal: (show: boolean) => void;
   accountName: string;
 }
@@ -18,12 +19,10 @@ interface SidebarProps {
 export default function Sidebar({
   activeTab,
   setActiveTab,
-  xp,
   streak,
   gems,
   activeLanguage,
   setShowLangModal,
-  accountName
 }: SidebarProps) {
   const menuItems = [
     { id: "home", label: "Trang chủ", icon: Home, color: "bg-pastel-pink" },
@@ -59,7 +58,9 @@ export default function Sidebar({
           </div>
           <div className="flex flex-col items-center justify-center bg-white border-3 border-[#1C1917] rounded-xl p-2 shadow-brutal-sm">
             <span className="text-[10px] font-bold text-gray-500 font-lexend">Gems</span>
-            <span className="text-xs font-black font-lexend">{gems} 💎</span>
+            <span className="text-xs font-black font-lexend inline-flex items-center gap-1">
+              {gems} <SvgIcon name="cube" className="w-4 h-4" />
+            </span>
           </div>
         </div>
 
@@ -69,7 +70,7 @@ export default function Sidebar({
           className="flex items-center justify-between w-full bg-[#ffffff] hover:bg-vintage-beige border-3 border-[#1C1917] rounded-xl p-3 shadow-brutal-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#1C1917] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#1C1917] transition-all font-lexend text-sm"
         >
           <div className="flex items-center gap-2">
-            <span className="text-xl">{activeLanguage.flag}</span>
+            <SvgIcon name={activeLanguage.icon} className="w-5 h-5" />
             <span className="font-extrabold">{activeLanguage.name}</span>
           </div>
           <Globe className="w-4 h-4 text-[#1C1917]" />
